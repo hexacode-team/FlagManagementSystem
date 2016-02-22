@@ -1,0 +1,56 @@
+<head>
+
+<style type="text/css">
+	.page {
+  	overflow: visible;
+  	float: none;
+        clear: both;
+ 	page-break-before: always;
+	display: block;
+	}
+        
+        .p1{
+	margin: 0;
+	padding: 0;
+	}
+</style>
+</head>
+<% @routesHash.each_key do |key|%>
+<h1><h1>
+<p style="font-size:22px">Troop 1300 - Flag Run Sheets</p>
+<% count=0 %>
+<p class="p1">Route :<%= key%><br><u>Morning Drive :</u>&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Evening Driver :</u><br><u>Morning start time :</u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<u>Evening start time :</u></p>
+<p><br><br><table class="zui-table zui-table-zebra zui-table-horizontal ">
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Status</th>
+      <th>Street</th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Service Notes</th>
+      <th>ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routesHash[key].each do |subs| %>
+      <tr>
+        <td height="12px" style="font-size:12px;"><%= subs.run_sequence %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_status %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.street %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.qty %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.last_name%></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_notes%></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_id%></td>
+      </tr>
+      <% count=count+1 %>		
+    <% end %>
+    
+  </tbody>
+</table></p>
+<p class="p1"><u>Morning end time :</u> &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    <u>Evening end time :</u></p>
+<p class="p1"><u>Morning Scouts(List on back)</u> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    <u>Evening Scouts(List on back)</u></p>
+<p class="page p1" style="page-break-before:always float:none overflow:visibility display:table clear:both"></p>
+<%end%>
+
